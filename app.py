@@ -15,8 +15,8 @@ import predict
 import utils
 
 # ============================== CONFIG ======================================
-GITHUB_URL = "https://github.com/your-username/DigitRecognizer"
-LINKEDIN_URL = "https://linkedin.com/in/your-profile"
+GITHUB_URL = "https://github.com/pakicitus/Digit_Recogniser_deployed_model"
+LINKEDIN_URL = "www.linkedin.com/in/harsh-vats-788198253"
 
 st.set_page_config(
     page_title="Handwritten Digit Recognition",
@@ -206,7 +206,8 @@ with tab_draw:
 
     with col_controls:
         st.markdown("#### 🎨 Canvas Controls")
-        brush_width = st.slider("Brush Width", min_value=5, max_value=35, value=18)
+        brush_width = st.slider("Brush Width", min_value=5, max_value=35, value=32)
+        st.caption("💡 Brush width **32** tends to give the most accurate predictions — thick, bold strokes match MNIST's training style.")
         brush_color = st.color_picker("Brush Color", value="#FFFFFF")
         st.caption("Background is fixed to black to match MNIST's training format.")
         clear_clicked = st.button("🧹 Clear Canvas", use_container_width=True)

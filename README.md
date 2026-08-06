@@ -1,6 +1,8 @@
 # 🧠 Handwritten Digit Recognition
 
-> Draw a digit and let a Deep Neural Network recognize it instantly.
+Website for our deployed model: https://digitrecogniserdeployedmodel-n8xahi8lgxclrbkbltlappm.streamlit.app/ 
+
+> Draw a digit and let a Deep Neural Network recognise it instantly.
 
 A polished, portfolio-ready Streamlit web application that deploys a **Deep Neural Network trained on the MNIST dataset** for real-time handwritten digit recognition — draw, upload, or sample a digit and watch the model classify it with full transparency into confidence, probabilities, and the preprocessing pipeline.
 
@@ -17,9 +19,9 @@ This project takes a Deep Neural Network built while learning deep learning fund
 
 - A hand-drawn canvas that feeds directly into the model
 - A clear, visual explanation of every preprocessing step
-- Rich, animated visualizations of the model's confidence and reasoning
+- Rich, animated visualisations of the model's confidence and reasoning
 
-The model itself is a **fully-connected (Dense) Deep Neural Network** — no convolutional layers — trained on the classic **MNIST** dataset of 70,000 handwritten digit images.
+The model itself is a **fully-connected (Dense) Deep Neural Network** — no convolutional layers — trained on the classic **MNIST** dataset of 60,000 handwritten digit images.
 
 ---
 
@@ -58,7 +60,7 @@ The model itself is a **fully-connected (Dense) Deep Neural Network** — no con
 ```
 DigitRecognizer/
 ├── app.py                 # Streamlit UI — layout, tabs, sidebar, results rendering
-├── preprocessing.py        # Image preprocessing pipeline (grayscale, resize, normalize)
+├── preprocessing.py        # Image preprocessing pipeline (grayscale, resize, normalise)
 ├── predict.py               # Model loading + inference logic
 ├── utils.py                 # Session state, charts, history, CSS loading, MNIST sampling
 ├── train_model.py           # Optional script to train & export saved_model.keras
@@ -123,16 +125,16 @@ Then open the URL Streamlit prints (typically `http://localhost:8501`) in your b
 ## 🧬 Model Architecture
 
 ```
-Input(784) → Dense(256, ReLU) → Dropout(0.2)
-           → Dense(128, ReLU) → Dropout(0.2)
+Input(784) → Dense(250, ReLU) → Dropout(0.2)
+           → Dense(100, ReLU) → Dropout(0.2)
            → Dense(10, Softmax)
 ```
 
 - **Loss:** Categorical Crossentropy
 - **Optimizer:** Adam
-- **Dataset:** MNIST (60,000 training / 10,000 test images)
+- **Dataset:** MNIST (50,000 training / 10,000 test images)
 
-Update `app.py`'s "Model Architecture & Training Details" section with your model's actual final metrics after training.
+
 
 ---
 

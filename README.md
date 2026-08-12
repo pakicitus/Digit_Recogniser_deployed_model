@@ -112,16 +112,6 @@ Then open the URL Streamlit prints (typically `http://localhost:8501`) in your b
 
 ---
 
-## 🖼️ Screenshots
-
-> _Add screenshots or a short GIF of the app here before publishing to GitHub/LinkedIn._
-
-| Home | Prediction | Model Details |
-|---|---|---|
-| `assets/screenshot-home.png` | `assets/screenshot-prediction.png` | `assets/screenshot-model.png` |
-
----
-
 ## 🧬 Model Architecture
 
 ```

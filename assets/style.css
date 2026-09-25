@@ -1,0 +1,265 @@
+/* =========================================================================
+   Handwritten Digit Recognition — Custom Theme
+   Palette:  #0B0E1A (void) / #0F1224 (bg) / #161B2E (card)
+             #6366F1 -> #8B5CF6 -> #A855F7 (signature blue/purple gradient)
+   Type:     Sora (display) / Inter (body) / JetBrains Mono (data & metrics)
+   ========================================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+:root {
+    --bg-void: #0B0E1A;
+    --bg-primary: #0F1224;
+    --bg-card: #161B2E;
+    --bg-card-hover: #1B2138;
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --accent-blue: #6366F1;
+    --accent-mid: #8B5CF6;
+    --accent-purple: #A855F7;
+    --gradient-signature: linear-gradient(135deg, #6366F1 0%, #8B5CF6 50%, #A855F7 100%);
+    --text-primary: #E8EAF6;
+    --text-muted: #8B92B0;
+    --success: #22C55E;
+}
+
+/* ---------- Base canvas ---------- */
+.stApp {
+    background:
+        radial-gradient(circle at 15% 0%, rgba(99, 102, 241, 0.10) 0%, transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(168, 85, 247, 0.08) 0%, transparent 45%),
+        var(--bg-void);
+    font-family: 'Inter', sans-serif;
+    color: var(--text-primary);
+}
+
+section[data-testid="stSidebar"] {
+    background: var(--bg-primary);
+    border-right: 1px solid var(--border-subtle);
+}
+
+/* ---------- Typography ---------- */
+h1, h2, h3, h4 {
+    font-family: 'Sora', sans-serif !important;
+    color: var(--text-primary) !important;
+    letter-spacing: -0.01em;
+}
+
+p, span, label, div {
+    font-family: 'Inter', sans-serif;
+}
+
+.hero-title {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 2.75rem;
+    text-align: center;
+    background: var(--gradient-signature);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: glowPulse 4s ease-in-out infinite;
+    margin-bottom: 0.25rem;
+}
+
+.hero-subtitle {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    font-style: italic;
+    margin-bottom: 0.5rem;
+}
+
+.hero-description {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 1.5rem auto;
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+@keyframes glowPulse {
+    0%, 100% { filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.25)); }
+    50% { filter: drop-shadow(0 0 18px rgba(168, 85, 247, 0.45)); }
+}
+
+/* ---------- Card container ---------- */
+.glass-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 18px;
+    padding: 1.5rem;
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 0.5s ease both;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+}
+
+.glass-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--gradient-signature);
+    opacity: 0.85;
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(12px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* ---------- Predicted digit badge ---------- */
+.digit-badge {
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    font-size: 4.5rem;
+    text-align: center;
+    background: var(--gradient-signature);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+    animation: popIn 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+@keyframes popIn {
+    from { opacity: 0; transform: scale(0.6); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* ---------- Pipeline arrows / steps ---------- */
+.pipeline-step {
+    text-align: center;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    letter-spacing: 0.03em;
+}
+
+.pipeline-arrow {
+    text-align: center;
+    color: var(--accent-purple);
+    font-size: 1.3rem;
+    margin: 0.15rem 0;
+}
+
+/* ---------- Buttons ---------- */
+div.stButton > button, div.stDownloadButton > button {
+    background: var(--gradient-signature);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    padding: 0.55rem 1.2rem;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    box-shadow: 0 2px 12px rgba(99, 102, 241, 0.25);
+}
+
+div.stButton > button:hover, div.stDownloadButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
+    color: #fff;
+}
+
+div.stButton > button:active {
+    transform: translateY(0px);
+}
+
+/* Secondary / link-style buttons in sidebar */
+.sidebar-link-btn a {
+    display: block;
+    text-align: center;
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 10px;
+    padding: 0.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary) !important;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none !important;
+    transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.sidebar-link-btn a:hover {
+    border-color: var(--accent-purple);
+    background: var(--bg-card-hover);
+}
+
+/* ---------- Metrics ---------- */
+div[data-testid="stMetric"] {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+    padding: 0.9rem 1rem;
+}
+
+div[data-testid="stMetricValue"] {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--accent-purple);
+}
+
+/* ---------- Progress bar ---------- */
+div[data-testid="stProgress"] > div > div {
+    background: var(--gradient-signature) !important;
+}
+
+/* ---------- Tabs ---------- */
+button[data-baseweb="tab"] {
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+button[data-baseweb="tab"][aria-selected="true"] {
+    color: var(--accent-purple);
+}
+
+/* ---------- Expander ---------- */
+details {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 14px;
+}
+
+/* ---------- History list ---------- */
+.history-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0.25rem;
+    border-bottom: 1px solid var(--border-subtle);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+}
+
+.history-digit {
+    font-family: 'Sora', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--accent-purple);
+    width: 1.5rem;
+}
+
+/* ---------- Footer ---------- */
+.app-footer {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding: 2rem 0 1rem 0;
+    border-top: 1px solid var(--border-subtle);
+    margin-top: 2.5rem;
+}
+
+.app-footer a {
+    color: var(--accent-purple);
+    text-decoration: none;
+}
+
+/* ---------- Scrollbar ---------- */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb { background: var(--accent-mid); border-radius: 8px; }
